@@ -1,14 +1,8 @@
 # SIJP static site
 
-sijp.org (WordPress / Inspiro テーマ) から必要なページだけを抜き出し、[Astro](https://astro.build/) で静的サイトに移行。
-
-## リポジトリ
-
-https://github.com/kimasaki/SIJP
+WordPressで管理していたsijp.orgから必要なページだけを抜き出し[Astro](https://astro.build/) で静的サイトに移行。
 
 ## コマンド
-
-Node.js 22.23.4 以上が必要
 
 ```
 npm install       # 初回のみ
@@ -65,11 +59,10 @@ npx wrangler deploy        # dist/ を Worker sijp-static に公開（設定は 
 `main` に push すると Cloudflare 側でビルドして公開する。
 
 
-1. GitHub リポジトリ [kimasaki/SIJP](https://github.com/kimasaki/SIJP) の `main` に push する（`.gitignore` で `node_modules/` `dist/` `.astro/` は除外済み）
-2. Worker `sijp-static` の Settings → Build で GitHub リポジトリを接続し、次を設定する
+1. GitHub リポジトリ [kimasaki/SIJP](https://github.com/kimasaki/SIJP) の `main` に push
+2. Worker `sijp-static` の Settings → Build で GitHub リポジトリを接続
    - Build command: `npm run build`
    - Deploy command（Workers の場合）: `npx wrangler deploy`
-   - 環境変数 `NODE_VERSION`: `22.23.4` 以上（例: `24`）。Cloudflare の既定の Node が古いと Astro 7 のビルドが失敗します
-3. GitHub Actions でデプロイする場合は `cloudflare/wrangler-action` を使い、リポジトリの Secrets に `CLOUDFLARE_API_TOKEN` と `CLOUDFLARE_ACCOUNT_ID` を登録する
+   - 環境変数 `NODE_VERSION`: `22.23.4` 以上（例: `24`）
 
 `wrangler deploy` の設定はリポジトリ直下の `wrangler.jsonc` で管理する。
