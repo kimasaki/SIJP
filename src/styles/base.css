@@ -1,0 +1,46 @@
+:root {
+  --ink: #222222;
+  --text: #444444;
+  --muted: #78787f;
+  --accent: #0bb4aa;
+  --bar: #101010;
+  --light: #f8f8f8;
+  --grey: #999999;
+  --wrap: 920px;
+  --font-head: "Onest", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Hiragino Kaku Gothic Pro", "Hiragino Sans", Meiryo, "Noto Sans JP", sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: #fff;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.9;
+  -webkit-font-smoothing: antialiased;
+  /* Keep the footer at the bottom of the window on short pages */
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+main { flex: 1; }
+
+/* Line breaking: break Japanese at phrase boundaries (Chromium; others fall back to default),
+   balance headings and centered text, avoid a lone word/character on the last line. */
+body { line-break: strict; word-break: auto-phrase; }
+h1, h2, h3 { text-wrap: balance; }
+p, li { text-wrap: pretty; }
+.center p, .lead, .message p { text-wrap: balance; }
+img, video { max-width: 100%; display: block; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+h1, h2, h3, h4 { font-family: var(--font-head); color: var(--ink); line-height: 1.4; margin: 0 0 .6em; }
+
+.wrap { width: 100%; max-width: calc(var(--wrap) + 40px); margin: 0 auto; padding: 0 20px; }
+.skip-link { position: absolute; left: -9999px; }
+.skip-link:focus { left: 8px; top: 8px; z-index: 1000; background: #fff; color: #000; padding: 8px 12px; }
+

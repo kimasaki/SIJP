@@ -1,0 +1,16 @@
+---
+import { BRAND, COPYRIGHT_YEAR, footerLinks } from '../data/site';
+---
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Copyright © {COPYRIGHT_YEAR} SIJP - {BRAND}</p>
+    <p>
+      {footerLinks.map((link, i) => (
+        <>
+          {i > 0 && <span class="sep">|</span>}
+          <a href={link.href}>{link.label}</a>
+        </>
+      ))}
+    </p>
+  </div>
+</footer>

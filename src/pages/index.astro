@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+import ActivityCard from '../components/ActivityCard.astro';
+import JoinRow from '../components/JoinRow.astro';
+import { activities, joinRows } from '../data/site';
+---
+<BaseLayout isHome>
+  <section class="hero">
+    <video autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+      <source src="/video/seattle_lp.mp4" type="video/mp4">
+    </video>
+    <h1 data-typing>Ready to Start Your IT Journey in Seattle</h1>
+    <a class="scroll-down" href="#mission" aria-label="下へスクロール"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 12l10 9 10-9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </section>
+
+  <section class="section mission center" id="mission">
+    <div class="wrap">
+      <h2>Mission Statement</h2>
+      <p>We are the professionals of Information Technology rooted in Seattle area who empower technology professionals and help the community.</p>
+      <Button href="/about-us/">About us</Button>
+    </div>
+  </section>
+
+  <section class="section section--light activities">
+    <div class="wrap">
+      <h2>Activities</h2>
+      <p class="lead">We are committed to a community rooted in Seattle that supports IT education for kids and careers for IT Professionals.</p>
+      <div class="cards">
+        {activities.map((a) => <ActivityCard {...a} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section--dark join-head">
+    <div class="wrap">
+      <p class="eyebrow">How to join?</p>
+      <h2>Three Ways to Join Our Community</h2>
+    </div>
+  </section>
+
+  {joinRows.map((row, i) => <JoinRow {...row} num={i + 1} light={i % 2 === 1} flip={i % 2 === 1} />)}
+
+  <section class="section section--grey message">
+    <div class="wrap">
+      <h2>Message</h2>
+      <p>シアトルはMicrosoft, Amazon, Google, Nintendo US などの数多くのIT企業が存在しています。</p>
+      <p>経済的に大きな影響を持つだけでなく、文化面でもITは欠かせない存在となっています。</p>
+      <p>シアトル在住のITプロフェッショナルたちがこのシアトルでコミュニティのため、未来のためにできることは何か。</p>
+      <p>私たちにできることを少しづつ形にしていきたいと思っています。</p>
+      <Button href="/contact-us/" light>Contact us</Button>
+    </div>
+  </section>
+</BaseLayout>

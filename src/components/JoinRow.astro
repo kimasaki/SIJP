@@ -1,0 +1,26 @@
+---
+import Button from './Button.astro';
+
+interface Props {
+  title: string;
+  text: string;
+  num: number;
+  href: string;
+  external?: boolean;
+  light?: boolean;
+  flip?: boolean;
+}
+const { title, text, num, href, external = false, light = false, flip = false } = Astro.props;
+---
+<section class:list={['join-row', 'section', { 'section--light': light, 'join-row--flip': flip }]}>
+  <div class="wrap">
+    <div class="join-text">
+      <p>{text}</p>
+      <Button href={href} external={external}>More</Button>
+    </div>
+    <div class="join-media">
+      <span class="join-num" aria-hidden="true">{String(num).padStart(2, '0')}</span>
+      <h3 class="join-label">{title}</h3>
+    </div>
+  </div>
+</section>

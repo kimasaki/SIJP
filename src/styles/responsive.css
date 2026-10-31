@@ -1,0 +1,61 @@
+@media (max-width: 900px) {
+  .cards { grid-template-columns: 1fr; }
+  .card { aspect-ratio: 16 / 9; }
+  .card h3 br { display: none; } /* one line when cards are full width */
+  .section { padding: 64px 0; }
+
+  /* Join rows: number block, title, text, button (stacked in this order, flip or not) */
+  .join-row .wrap { grid-template-columns: 1fr; gap: 0; }
+  .join-text { display: contents; }
+  .join-media, .join-row--flip .join-media { order: -1; margin-bottom: 24px; aspect-ratio: 16 / 9; }
+  .join-row .btn { justify-self: start; }
+}
+
+/* Phones: smaller type and tighter spacing */
+@media (max-width: 600px) {
+  body { font-size: 15px; line-height: 1.8; }
+
+  .site-header .wrap { min-height: 60px; }
+  .brand { font-size: 14px; }
+
+  .hero h1 { font-size: 26px; }
+
+  .section { padding: 48px 0; }
+  .mission h2 { font-size: 15px; }
+  .mission p { font-size: 14px; margin-bottom: 24px; }
+  .btn { font-size: 14px; padding: 8px 16px; }
+
+  .activities h2 { font-size: 24px; }
+  .activities .lead { font-size: 14px; margin-bottom: 32px; }
+  .card .card-body { padding: 0 20px; }
+  .card { gap: 14px; }
+  .card-icon { width: 72px; }
+  .join-num { font-size: 44px; }
+  .join-label { font-size: 19px; letter-spacing: .06em; }
+  .card h3 { font-size: 19px; font-weight: 700; }
+
+  .section--dark { padding: 44px 0 36px; }
+  .join-head h2 { font-size: 22px; }
+  .eyebrow { font-size: 12px; margin-bottom: 12px; }
+  .join-row p { font-size: 14px; margin-bottom: 16px; }
+  .join-row .btn { font-size: 13px; padding: 6px 14px; }
+  .join-media, .join-row--flip .join-media { margin-bottom: 20px; }
+
+  .message h2 { font-size: 15px; margin-bottom: 28px; }
+  .message p { font-size: 13px; font-weight: 400; }
+  .message .btn { margin-top: 28px; }
+
+  .page { padding: 28px 0 48px; }
+  .page h1 { font-size: 26px; margin-bottom: 28px; }
+  .page h2 { font-size: 20px; margin: 36px 0 12px; }
+  .page h3 { font-size: 17px; margin: 28px 0 10px; }
+  .page .note { font-size: 13px; }
+
+  .site-footer { padding: 44px 0 40px; font-size: 13px; }
+  .to-top { right: 14px; bottom: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
